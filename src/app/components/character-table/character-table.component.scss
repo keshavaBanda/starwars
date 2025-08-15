@@ -1,0 +1,26 @@
+:host {
+  display: inline-block;
+  width: 100%;
+  // border: 10px solid red;
+}
+
+.dummy {
+  background-color: blue;
+  // width: -webkit-fill-available;
+}
+
+.table-card {
+  background: white;
+  padding: 15px;
+
+  .table {
+    th {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+
+  mat-paginator {
+    background-color: white;
+  }
+}

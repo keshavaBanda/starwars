@@ -1,0 +1,54 @@
+<div class="container-fuid">
+
+  <mat-card class="table-card" appearance="outlined">
+    <header>
+      <h5 class="m-0">Search Results</h5>
+      <small class="mb-5">(By Default this will have all data)</small>
+    </header>
+
+    <main>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sl No.</th>
+            <th>Character Name</th>
+            <th>Species</th>
+            <th>Birth Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Charater 1</td>
+            <td>Species 1</td>
+            <td>AA101</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Charater 1</td>
+            <td>Species 1</td>
+            <td>AA101</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Charater 1</td>
+            <td>Species 1</td>
+            <td>AA101</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Charater 1</td>
+            <td>Species 1</td>
+            <td>AA101</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <footer>
+      <mat-paginator [showFirstLastButtons]="true" [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page">
+      </mat-paginator>
+    </footer>
+  </mat-card>
+
+</div>
