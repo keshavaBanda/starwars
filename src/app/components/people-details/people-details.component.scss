@@ -1,0 +1,72 @@
+:host{
+    display: block;
+    width: 100%;
+}
+.details-card {
+  min-width: 250px;
+  padding: 15px;
+  background-color: white;
+  // margin: 15px;
+
+  .people-info {
+    .base-style {
+      margin: 0;
+      color: gray;
+      font-weight: 400;
+      &.bold {
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .people-logo {
+    width: 150px;
+    height: 150px;
+    margin-inline: auto;
+    display: grid;
+    place-items: center;
+    border: solid 1px gray;
+    border-radius: 50%;
+    overflow: hidden;
+    //   padding-bottom: 12px;
+    img {
+      width: 80%;
+      height: 80%;
+    }
+
+    // border: ;
+  }
+}
+
+.people-carrer-info {
+  background: white;
+  padding: 15px;
+  position: relative;
+  overflow: auto;
+  width: 100%;
+//   max-height: 100%;
+  .category{
+    margin: 0;
+    .title{
+        margin: 0;
+        color: #239b73;
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    .category-info{
+        margin: 12px 0;
+        padding: 15px;
+        border-radius: 15px;
+        background-color: #ebf0f0;
+        p{
+            margin: 0;
+            line-height: 1.5;
+            font-size: 14px;
+            color: gray;
+            font-weight: 500;
+        }
+    }
+  }
+}

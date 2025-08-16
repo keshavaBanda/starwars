@@ -1,6 +1,11 @@
 <div class="container-fuid">
-
   <mat-card class="table-card" appearance="outlined">
+    @if(showLoader){
+    <!-- <mat-progress-bar class="my-progress" mode="indeterminate"></mat-progress-bar> -->
+    <div class="loader-overlay">
+      <mat-spinner diameter="30" class="circle-spinner"></mat-spinner>
+    </div>
+    }
     <header>
       <h5 class="m-0">Search Results</h5>
       <small class="mb-5">(By Default this will have all data)</small>
@@ -14,41 +19,35 @@
             <th>Character Name</th>
             <th>Species</th>
             <th>Birth Year</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
+          @for(people of starwarPeople; let idx = $index; track people.name){
           <tr>
-            <td>1</td>
-            <td>Charater 1</td>
-            <td>Species 1</td>
-            <td>AA101</td>
+            <td>{{people._id}}</td>
+            <td>{{people.name}}</td>
+            <td>{{people.species}}</td>
+            <td>{{people.birth_year}}</td>
+            <td class="actions-td">
+              <!-- <button mat-icon-button> -->
+              <span [routerLink]="'people-details/'+people._id" class="material-icons visibility">
+                visibility
+              </span>
+              <!-- </button> -->
+            </td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Charater 1</td>
-            <td>Species 1</td>
-            <td>AA101</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Charater 1</td>
-            <td>Species 1</td>
-            <td>AA101</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Charater 1</td>
-            <td>Species 1</td>
-            <td>AA101</td>
-          </tr>
+          }
+          @empty {
+          <li>There are no items.</li>
+          }
         </tbody>
       </table>
     </main>
     <footer>
-      <mat-paginator [showFirstLastButtons]="true" [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page">
+      <mat-paginator (page)="pageChange($event)" [showFirstLastButtons]="true" [length]="resultData.count"
+        [pageSize]="10" [hidePageSize]="true" aria-label="Select page">
       </mat-paginator>
     </footer>
   </mat-card>
-
 </div>
