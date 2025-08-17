@@ -1,58 +1,107 @@
-<div class="container d-flex gap-5 px-5 pt-3">
+@if(showLoader){
+<app-loader></app-loader>
+}
+<!-- @else { -->
+<div class="container d-flex gap-5 px-5 pt-3 people-details-container">
     <mat-card class="details-card" appearance="outlined">
 
         <div class="people-logo">
-            <img src="favicon.ico" alt="Angular Logo">
+            <img src="/assets/no-profile.png" alt="Profile">
         </div>
 
         <div class="people-info">
-            <p class="base-style bold">Name: Luke</p>
-            <p class="base-style">Skywalkerborn: 19BBY</p>
-            <p class="base-style">Gender: male</p>
-            <p class="base-style">Height: 172cm</p>
-            <p class="base-style">Weight: 77kg</p>
-            <p class="base-style">Created at: 09/12/2014</p>
-            <p class="base-style">07:20 PM</p>
-            <p class="base-style">Edited at: 21/12/2014</p>
-            <p class="base-style">02:47 AM</p>
-            <p class="base-style">Hair color: blond</p>
-            <p class="base-style">Eye color: blue</p>
-            <p class="base-style">Skin color: fair</p>
-            <p class="base-style bold">Panet Name: Tatooine</p>
-            <p class="base-style bold">Species: Human</p>
+            <p class="base-style bold">Name: {{peopleDetails.name}}</p>
+            <p class="base-style">Skywalkerborn: {{peopleDetails.birth_year}}</p>
+            <p class="base-style">Gender: {{peopleDetails.gender}}</p>
+            <p class="base-style">Height: {{peopleDetails.height}}</p>
+            <p class="base-style">Weight: {{peopleDetails.mass}}</p>
+            <p class="base-style">Created at: {{peopleDetails.created | date: 'short'}}</p>
+            <!-- <p class="base-style">{{peopleDetails.created| date: 'shortTime'}}</p> -->
+            <p class="base-style">Edited at: {{peopleDetails.edited | date: 'short'}}</p>
+            <!-- <p class="base-style">{{peopleDetails.edited | date: 'shortTime'}}</p> -->
+            <p class="base-style">Hair color: {{peopleDetails.hair_color}}</p>
+            <p class="base-style">Eye color: {{peopleDetails.eye_color}}</p>
+            <p class="base-style">Skin color: {{peopleDetails.skin_color}}</p>
+            <p class="base-style bold">Panet Name: {{peopleDetails.homeworld}}</p>
+            <p class="base-style bold">Species: {{peopleDetails.species}}
+                <!-- @for(specie of peopleDetails.species; track specie?.name){
+                        <span >{{specie.name}}</span>
+                    } -->
+            </p>
         </div>
 
     </mat-card>
 
     <mat-card class="people-carrer-info">
+        <!-- <div class="category-container"> -->
         <div class="category">
             <h3 class="title">Films</h3>
+            @for(film of films; track film?.title){
             <div class="category-info">
-                <p>Movie Details Card 1</p>
-                <p>Movie Details</p>
-                <p>Movie Details</p>
+                <p><b>Name: </b> {{film?.title}}</p>
+                <p><b>Release Date: </b>{{film?.release_date}}</p>
+                <p><b>Episode: </b>{{film?.episode_id}}</p>
+                <p><b>Director: </b>{{film?.director}}</p>
+                <p><b>Producer: </b>{{film?.producer}}</p>
             </div>
+            }@empty {
             <div class="category-info">
-                <p>Movie Details Card 1</p>
-                <p>Movie Details</p>
-                <p>Movie Details</p>
+                <p>There are no items.</p>
             </div>
+            }
+
         </div>
         <div class="category">
             <h3 class="title">Vehicles</h3>
+            @for(vehicle of vehicles; track vehicle?.name){
             <div class="category-info">
-                <p>Movie Details Card 1</p>
-                <p>Movie Details</p>
-                <p>Movie Details</p>
+                <p><b>Name: </b> {{vehicle?.name}}</p>
+                <p><b>Model: </b>{{vehicle?.model}}</p>
+                <p><b>Manufacturer: </b>{{vehicle?.manufacturer}}</p>
+                <p><b>Vechile Class: </b>{{vehicle?.vehicle_class}}</p>
+                <p><b>Max Speed: </b>{{vehicle?.max_atmosphering_speed}}</p>
             </div>
+            }@empty {
+            <div class="category-info">
+                <p>There are no items.</p>
+            </div>
+            }
+
         </div>
         <div class="category">
             <h3 class="title">Starships</h3>
+            @for(starship of starships; track starship?.name){
             <div class="category-info">
-                <p>Movie Details Card 1</p>
-                <p>Movie Details</p>
-                <p>Movie Details</p>
+                <p><b>Name: </b> {{starship?.name}}</p>
+                <p><b>Model: </b>{{starship?.model}}</p>
+                <p><b>Manufacturer: </b>{{starship?.manufacturer}}</p>
+                <p><b>Cost Credits: </b>{{starship?.cost_in_credits}}</p>
+                <p><b>Max Speed: </b>{{starship?.max_atmosphering_speed}}</p>
             </div>
+            }@empty {
+            <div class="category-info">
+                <p>There are no items.</p>
+            </div>
+            }
+
         </div>
+        <div class="category">
+            <h3 class="title">Species</h3>
+            @for(specie of species; track specie?.name){
+            <div class="category-info">
+                <p><b>Name: </b> {{specie?.name}}</p>
+                <p><b>Classification: </b>{{specie?.classification}}</p>
+                <p><b>Designation: </b>{{specie?.designation}}</p>
+                <p><b>Average_height: </b>{{specie?.average_height}}</p>
+                <p><b>language: </b>{{specie?.language}}</p>
+            </div>
+            }@empty {
+            <div class="category-info">
+                <p>There are no items.</p>
+            </div>
+            }
+        </div>
+        <!-- </div> -->
     </mat-card>
 </div>
+<!-- } -->

@@ -1,4 +1,55 @@
-<div style="display: flex;">
+@if(showLoader){
+<app-loader></app-loader>
+}
+
+<div class="people-list-container">
     <app-filter-sidebar></app-filter-sidebar>
-    <app-character-table></app-character-table>
+    <div class="container-fuid w-100">
+        <mat-card class="table-card" appearance="outlined">
+
+            <header>
+                <h5 class="m-0">Search Results</h5>
+                <small class="mb-5">(By Default this will have all data)</small>
+            </header>
+
+            <main>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Character Name</th>
+                            <th>Species</th>
+                            <th>Birth Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(people of starwarPeople; let idx = $index; track people.name){
+                        <tr>
+                            <td>{{people._id}}</td>
+                            <td>{{people.name}}</td>
+                            <td>{{people.species}}</td>
+                            <td>{{people.birth_year}}</td>
+                            <td class="actions-td">
+                                <!-- <button mat-icon-button> -->
+                                <span [routerLink]="'people-details/'+people._id" class="material-icons visibility">
+                                    visibility
+                                </span>
+                                <!-- </button> -->
+                            </td>
+                        </tr>
+                        }
+                        @empty {
+                        <li>There are no items.</li>
+                        }
+                    </tbody>
+                </table>
+            </main>
+            <footer>
+                <mat-paginator (page)="pageChange($event)" [showFirstLastButtons]="true" [length]="resultData.count"
+                    [pageSize]="10" [hidePageSize]="true" aria-label="Select page">
+                </mat-paginator>
+            </footer>
+        </mat-card>
+    </div>
 </div>
