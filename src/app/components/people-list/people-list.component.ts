@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { FilterSidebarComponent } from "../filter-sidebar/filter-sidebar.component";
 import { LoaderComponent } from '../../core/loader/loader.component';
 import { MatCardModule } from '@angular/material/card';
-import { StarwarsService } from '../../services/starwars.service';
+import { IFilm, IPeople, IPeopleDetailsResponse, ISpeice, IStarship, IVehicle, StarwarsService } from '../../services/starwars.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-people-list',
@@ -20,9 +21,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './people-list.component.scss'
 })
 export class PeopleListComponent {
-  starwarPeople: any = [];
-  resultData: any = '';
+  starwarPeople?: IPeopleDetailsResponse[] = [];
+  resultData?: IPeople;
   showLoader: boolean = false;
+
 
   constructor(private starwarsService: StarwarsService) {
 
@@ -30,7 +32,7 @@ export class PeopleListComponent {
 
   ngOnInit() {
     this.showLoader = true;
-    this.starwarsService.getAllPeople().subscribe((data: any) => {
+    this.starwarsService.getAllPeople().subscribe((data: IPeople) => {
       this.resultData = data;
       console.log(data)
       this.starwarPeople = data.results;
@@ -38,11 +40,10 @@ export class PeopleListComponent {
     })
   }
 
-
   pageChange(event: PageEvent) {
     let pageno = event.pageIndex + 1;
     this.showLoader = true;
-    this.starwarsService.getNextPage(pageno).subscribe((data: any) => {
+    this.starwarsService.getNextPage(pageno).subscribe((data: IPeople) => {
       console.log(data)
       this.starwarPeople = data.results;
       this.showLoader = false;

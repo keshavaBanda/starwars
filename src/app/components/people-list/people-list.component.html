@@ -3,7 +3,7 @@
 }
 
 <div class="people-list-container">
-    <app-filter-sidebar></app-filter-sidebar>
+    <app-filter-sidebar [characterDetails]="starwarPeople"></app-filter-sidebar>
     <div class="container-fuid w-100">
         <mat-card class="table-card" appearance="outlined">
 
@@ -46,7 +46,7 @@
                 </table>
             </main>
             <footer>
-                <mat-paginator (page)="pageChange($event)" [showFirstLastButtons]="true" [length]="resultData.count"
+                <mat-paginator (page)="pageChange($event)" [showFirstLastButtons]="true" [length]="resultData?.count"
                     [pageSize]="10" [hidePageSize]="true" aria-label="Select page">
                 </mat-paginator>
             </footer>

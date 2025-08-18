@@ -10,20 +10,20 @@
         </div>
 
         <div class="people-info">
-            <p class="base-style bold">Name: {{peopleDetails.name}}</p>
-            <p class="base-style">Skywalkerborn: {{peopleDetails.birth_year}}</p>
-            <p class="base-style">Gender: {{peopleDetails.gender}}</p>
-            <p class="base-style">Height: {{peopleDetails.height}}</p>
-            <p class="base-style">Weight: {{peopleDetails.mass}}</p>
-            <p class="base-style">Created at: {{peopleDetails.created | date: 'short'}}</p>
+            <p class="base-style bold">Name: {{(peopleDetails?.name)}}</p>
+            <p class="base-style">Skywalkerborn: {{peopleDetails?.birth_year}}</p>
+            <p class="base-style">Gender: {{peopleDetails?.gender}}</p>
+            <p class="base-style">Height: {{peopleDetails?.height}}</p>
+            <p class="base-style">Weight: {{peopleDetails?.mass}}</p>
+            <p class="base-style">Created at: {{peopleDetails?.created | date: 'short'}}</p>
             <!-- <p class="base-style">{{peopleDetails.created| date: 'shortTime'}}</p> -->
-            <p class="base-style">Edited at: {{peopleDetails.edited | date: 'short'}}</p>
+            <p class="base-style">Edited at: {{peopleDetails?.edited | date: 'short'}}</p>
             <!-- <p class="base-style">{{peopleDetails.edited | date: 'shortTime'}}</p> -->
-            <p class="base-style">Hair color: {{peopleDetails.hair_color}}</p>
-            <p class="base-style">Eye color: {{peopleDetails.eye_color}}</p>
-            <p class="base-style">Skin color: {{peopleDetails.skin_color}}</p>
-            <p class="base-style bold">Panet Name: {{peopleDetails.homeworld}}</p>
-            <p class="base-style bold">Species: {{peopleDetails.species}}
+            <p class="base-style">Hair color: {{peopleDetails?.hair_color}}</p>
+            <p class="base-style">Eye color: {{peopleDetails?.eye_color}}</p>
+            <p class="base-style">Skin color: {{peopleDetails?.skin_color}}</p>
+            <p class="base-style bold">Panet Name: {{peopleDetails?.homeworld}}</p>
+            <p class="base-style bold">Species: {{peopleDetails?.species}}
                 <!-- @for(specie of peopleDetails.species; track specie?.name){
                         <span >{{specie.name}}</span>
                     } -->

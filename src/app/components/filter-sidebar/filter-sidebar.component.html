@@ -4,44 +4,42 @@
     <mat-form-field appearance="outline">
       <mat-label>Movie Name</mat-label>
       <mat-select>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
+        @for(movie of movieList; track movie?._id){
+        <mat-option [value]="movie?._id">{{movie?.title}}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Species</mat-label>
       <mat-select>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
+        @for(speice of speiceList; track speice?._id){
+        <mat-option [value]="speice?._id">{{speice?.name}}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Vechicle</mat-label>
       <mat-select>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
+        @for(vehicle of vehicleList; track vehicle?._id){
+        <mat-option [value]="vehicle?._id">{{vehicle?.name}}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Star Ships</mat-label>
       <mat-select>
-        <mat-option value="volvo">Volvo</mat-option>
-        <mat-option value="saab">Saab</mat-option>
-        <mat-option value="mercedes">Mercedes</mat-option>
-        <mat-option value="audi">Audi</mat-option>
+        @for (starship of starshipList; track starship?._id) {
+        <mat-option [value]="starship?._id">{{starship?.name}}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Birth Year</mat-label>
       <mat-select multiple>
-        <mat-option value="volvo">ALL</mat-option>
-        <mat-option value="saab">BBD20</mat-option>
+        <mat-option value="all">ALL</mat-option>
+        @for(people of starwarPeople; track people?._id){
+          <mat-option [value]="people?._id">{{people?.birth_year}}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <button mat-flat-button>Search</button>
