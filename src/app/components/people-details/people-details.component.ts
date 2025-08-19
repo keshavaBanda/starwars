@@ -42,6 +42,16 @@ export class PeopleDetailsComponent {
       this.starships = data.starships;
       this.species = data.species;
       this.showLoader = false;
+
+      // const filmRequests = people.films.map((url:string)=> {
+      //   const proxyUrl = url.replace('https://swapi.dev/api/', environment.apiUrl)
+      //   return this.http.get(proxyUrl)
+      // });
+      // console.log(filmRequests);
+
+      // forkJoin(filmRequests).subscribe((response: any)=>{
+      //   console.log(response)
+      // })
     })
   }
 }
