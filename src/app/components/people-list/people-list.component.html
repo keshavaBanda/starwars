@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{people._id}}</td>
                             <td>{{people.name}}</td>
-                            <td>{{people.species}}</td>
+                            <td>{{(people.species.length > 0) ? people.speciesData?.[0]?.name : 'NA'}}</td>
                             <td>{{people.birth_year}}</td>
                             <td class="actions-td">
                                 <!-- <button mat-icon-button> -->

@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { IFilm, IPeopleDetails, IPeopleDetailsResponse, ISpeice, IStarship, IVehicle, StarwarsService } from './../../services/starwars.service';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -7,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from "../../core/loader/loader.component";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { IPeopleDetailsResponse, IFilm, IVehicle, ISpeice, IStarship, IPeopleDetails } from '../../common/interfaces/swapi-interfaces';
+import { StarwarsService } from '../../services/starwars.service';
 
 @Component({
   selector: 'app-people-details',

@@ -2,8 +2,9 @@ import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
-import { IFilm, IPeopleDetailsResponse, ISpeice, IStarship, IVehicle, StarwarsService } from '../../services/starwars.service';
 import { forkJoin } from 'rxjs';
+import { IFilm, IPeopleDetailsResponse, ISpeice, IStarship, IVehicle } from '../../common/interfaces/swapi-interfaces';
+import { StarwarsService } from '../../services/starwars.service';
 
 
 @Component({
@@ -24,7 +25,6 @@ export class FilterSidebarComponent {
   }
 
   ngOnChanges(): void {
-    console.log(this.starwarPeople);
   }
 
   ngOnInit(): void {
@@ -44,11 +44,16 @@ export class FilterSidebarComponent {
       vechileData: IVehicle[],
       starshipData: IStarship[]
     }) => {
-      console.log(response)
       this.movieList = response.moviesData;
       this.speiceList = response.speciesData;
       this.vehicleList = response.vechileData;
       this.starshipList = response.starshipData;
     })
   }
+
+
+  getAllBirthYears(){
+
+  }
+
 }
