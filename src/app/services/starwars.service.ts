@@ -22,7 +22,6 @@ export class StarwarsService {
               catchError((error) => of({ err: error }))
             ))
           ).subscribe((data:any)=>{
-            console.log(data);
             e.speciesData = data;
           })
           
@@ -43,7 +42,6 @@ export class StarwarsService {
               catchError((error) => of({ err: error }))
             ))
           ).subscribe((data:any)=>{
-            console.log(data);
             e.speciesData = data;
           })
           
@@ -107,7 +105,6 @@ export class StarwarsService {
       switchMap((people: IPeopleDetailsResponse) => {
         const films$: Observable<(IFilm | null)[]> = people.films.length ? forkJoin(
           people.films.map((url: string) => this.http.get<IFilm>(url.replace('https://swapi.dev/api/', environment.apiUrl)).pipe(
-            tap((res) => console.log("Fetched..", url, res)),
             catchError((error) => {
               console.error(url, error)
               return of(null)

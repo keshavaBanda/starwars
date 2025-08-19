@@ -45,7 +45,6 @@ export class PeopleListComponent {
     this.showLoader = true;
     this.starwarsService.getNextPage(pageno).subscribe((data: IPeople) => {
       this.starwarPeople = data.results;
-      console.log(this.starwarPeople)
       this.showLoader = false;
     })
 

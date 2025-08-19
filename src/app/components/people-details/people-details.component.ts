@@ -36,24 +36,12 @@ export class PeopleDetailsComponent {
   ngOnInit() {
     this.showLoader = true;
     this.starwarsService.getPeopleById(Number(this.peopleId)).subscribe((data: IPeopleDetails) => {
-      console.log("Response===>", data);
       this.peopleDetails = data.people;
       this.films = data.films;
       this.vehicles = data.vehicles;
       this.starships = data.starships;
       this.species = data.species;
-      console.log(this.peopleDetails)
       this.showLoader = false;
-
-      // const filmRequests = people.films.map((url:string)=> {
-      //   const proxyUrl = url.replace('https://swapi.dev/api/', environment.apiUrl)
-      //   return this.http.get(proxyUrl)
-      // });
-      // console.log(filmRequests);
-
-      // forkJoin(filmRequests).subscribe((response: any)=>{
-      //   console.log(response)
-      // })
     })
   }
 }
